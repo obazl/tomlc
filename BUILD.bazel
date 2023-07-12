@@ -1,0 +1,70 @@
+load("//:BUILD.bzl",
+     "BASE_SRCS", "BASE_DEPS",
+     "BASE_COPTS", "BASE_INCLUDE_PATHS", "BASE_DEFINES", "BASE_LINKOPTS")
+
+SRCS          = BASE_SRCS
+INCLUDE_PATHS = BASE_INCLUDE_PATHS
+COPTS         = BASE_COPTS + INCLUDE_PATHS
+DEPS          = BASE_DEPS
+DEFINES       = BASE_DEFINES
+LINKOPTS      = BASE_LINKOPTS
+
+cc_library(
+    name       = "toml",
+    linkstatic = True,
+    srcs       = ["toml.c", "tomlx.c"],
+    hdrs       = ["toml.h", "tomlx.h"],
+    copts      = [
+        "-x", "c",
+        "-Wall",
+        "-Wextra",
+        # GCC:
+        "-Werror", # turn all warnings into errors
+        "-Werror=pedantic", # not needed with -Werror?
+        "-Wpedantic", # same as -pedantic, strict ISO C and ISO C++ warnings
+        "-pedantic-errors",
+        "-Wfatal-errors", # stop on first error
+    ] + select({
+        "@platforms//os:linux": [
+            "-std=gnu11",
+            "-fPIC",
+        ],
+        "//conditions:default": ["-std=c11"],
+    }),
+    # linkopts   = LINKOPTS,
+    # defines    = DEFINES,
+    visibility = ["//visibility:public"]
+)
+
+cc_binary(
+    name       = "toml_cat",
+    linkstatic = True,
+    srcs       = ["toml_cat.c"],
+    deps       = [":toml"],
+    copts      = COPTS,
+    linkopts   = LINKOPTS,
+    defines    = DEFINES,
+    visibility = ["//visibility:public"]
+)
+
+cc_binary(
+    name       = "toml_json",
+    linkstatic = True,
+    srcs       = ["toml_json.c"],
+    deps       = [":toml"],
+    copts      = COPTS,
+    linkopts   = LINKOPTS,
+    defines    = DEFINES,
+    visibility = ["//visibility:public"]
+)
+
+cc_binary(
+    name       = "toml_sample",
+    linkstatic = True,
+    srcs       = ["toml_sample.c"],
+    deps       = [":toml"],
+    copts      = COPTS,
+    linkopts   = LINKOPTS,
+    defines    = DEFINES,
+    visibility = ["//visibility:public"]
+)

@@ -1,0 +1,6 @@
+load(":BUILD.bzl", "toml_test")
+
+toml_test(
+    name = "test",
+    toml_files = glob(["*.toml"]),
+)

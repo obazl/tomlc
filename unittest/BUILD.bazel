@@ -1,0 +1,10 @@
+load("//:BUILD.bzl", "BASE_COPTS")
+
+cc_test(
+    name       = "test",
+    timeout    = "short",
+    srcs       = ["t1.c"],
+    copts      = BASE_COPTS,
+    deps       = ["//:toml"],
+    visibility = ["//visibility:public"]
+)
