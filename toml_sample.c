@@ -9,7 +9,9 @@ static void fatal(const char *msg, const char *msg1) {
   exit(1);
 }
 
-int main() {
+int main(int argc, const char *argv[]) {
+  (void)argc;
+  (void)argv;
   FILE *fp;
   char errbuf[200];
 

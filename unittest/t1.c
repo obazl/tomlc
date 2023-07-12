@@ -5,6 +5,8 @@
 #include <string.h>
 
 int main(int argc, const char *argv[]) {
+  (void)argc;
+  (void)argv;
   char xxbuf[6], buf[6];
   int64_t xxcode, code;
   int xxsize;

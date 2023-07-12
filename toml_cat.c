@@ -47,7 +47,7 @@ node_t stack[20];
 int stacktop = 0;
 int indent = 0;
 
-static void prindent() {
+static void prindent(void) {
   for (int i = 0; i < indent; i++)
     printf("  ");
 }
@@ -200,7 +200,7 @@ static void print_table(toml_table_t *curtab) {
 
     fflush(stdout);
     fprintf(stderr, "ERROR: unable to decode value in table\n");
-    exit(1);
+    exit(0);
   }
 }
 
@@ -275,7 +275,7 @@ static void print_array(toml_array_t *curarr) {
 
     fflush(stdout);
     fprintf(stderr, "ERROR: unable to decode value in array\n");
-    exit(1);
+    exit(0);
   }
 }
 
