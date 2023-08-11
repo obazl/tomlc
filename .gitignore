@@ -1,4 +1,11 @@
+.bazel
+bazel-*
+*.gz
+
+# emacs
 *~
+\#*\#
+.\#*
 
 # Object files
 *.o

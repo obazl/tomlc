@@ -1,0 +1,7 @@
+# test module
+
+bazel_dep(name = "tomlc", version = "1.0.0")
+local_path_override(
+    module_name = "tomlc",
+    path = "..",
+)
