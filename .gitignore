@@ -2,6 +2,10 @@
 bazel-*
 *.gz
 
+GPATH
+GRTAGS
+GTAGS
+
 # emacs
 *~
 \#*\#
