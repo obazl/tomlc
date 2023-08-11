@@ -10,10 +10,11 @@ DEFINES       = BASE_DEFINES
 LINKOPTS      = BASE_LINKOPTS
 
 cc_library(
-    name       = "toml",
+    name       = "tomlc",
     linkstatic = True,
-    srcs       = ["toml.c"], #"tomlx.c"],
-    hdrs       = ["toml.h"], #"tomlx.h"],
+    srcs       = ["tomlx.c"],
+    deps       = ["//:toml"],
+    hdrs       = ["tomlx.h"],
     copts      = [
         "-x", "c",
         "-Wall",
@@ -33,38 +34,5 @@ cc_library(
     }),
     # linkopts   = LINKOPTS,
     # defines    = DEFINES,
-    visibility = ["//visibility:public"]
-)
-
-cc_binary(
-    name       = "toml_cat",
-    linkstatic = True,
-    srcs       = ["toml_cat.c"],
-    deps       = [":toml"],
-    copts      = COPTS,
-    linkopts   = LINKOPTS,
-    defines    = DEFINES,
-    visibility = ["//visibility:public"]
-)
-
-cc_binary(
-    name       = "toml_json",
-    linkstatic = True,
-    srcs       = ["toml_json.c"],
-    deps       = [":toml"],
-    copts      = COPTS,
-    linkopts   = LINKOPTS,
-    defines    = DEFINES,
-    visibility = ["//visibility:public"]
-)
-
-cc_binary(
-    name       = "toml_sample",
-    linkstatic = True,
-    srcs       = ["toml_sample.c"],
-    deps       = [":toml"],
-    copts      = COPTS,
-    linkopts   = LINKOPTS,
-    defines    = DEFINES,
     visibility = ["//visibility:public"]
 )
