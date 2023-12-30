@@ -1,0 +1,9 @@
+## TODO: tomlx tests
+
+test_suite(
+    name  = "test",
+    tests = [
+        "//stdex:test",
+        "//unittest:test"
+   ]
+)
