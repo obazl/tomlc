@@ -8,7 +8,9 @@ int main(int argc, const char *argv[]) {
   (void)argc;
   (void)argv;
   char xxbuf[6], buf[6];
+  (void)buf;
   int64_t xxcode, code;
+  (void)code;
   int xxsize;
 
   xxsize = 2, xxcode = 0x80;
