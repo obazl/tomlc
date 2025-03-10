@@ -1,1 +1,5 @@
+try-import .config/registries.bazelrc
+common --registry=https://raw.githubusercontent.com/obazl/registry/main/
+common --registry=https://bcr.bazel.build
+
 try-import .config/user.bazelrc
